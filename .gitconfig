@@ -1,0 +1,7 @@
+[user]
+	email = peterahl@kth.se
+	name = Peter Ahlström
+[push]
+	default = simple
+[color]
+	ui = auto

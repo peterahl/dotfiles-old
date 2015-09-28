@@ -1,4 +1,5 @@
 (require 'package)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (push '("marmalade" . "http://marmalade-repo.org/packages/")
     package-archives )
 (push '("melpa" . "http://melpa.milkbox.net/packages/")
@@ -47,7 +48,8 @@
 ;; python shell setup
 (require 'python)
 (setq python-shell-interpreter "ipython")
-(setq python-shell-interpreter-args "--pylab")
+(setq python-shell-interpreter-args "--pylab --profile=dev")
+
 
 ;; (add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 100)))
 
