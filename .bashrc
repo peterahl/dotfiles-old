@@ -114,3 +114,8 @@ fi
 if [ -f "$HOME/.bash_xps" ]; then
     . "$HOME/.bash_xps"
 fi
+
+export PATH=$PATH:/home/peter/neuron/nrn/x86_64/bin
+
+BIBINPUTS=/Data/Dropbox/BIBTEX/:$BIBINPUTS
+export BIBINPUTS
