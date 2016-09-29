@@ -27,15 +27,19 @@ values."
      better-defaults
      emacs-lisp
      git
-     ;; markdown
-     org
+     markdown
+     (org :variables
+          org-enable-reveal-js t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
      ipython-notebook
      python
-     ;; syntax-checking
+     (latex :variables
+            latex-build-command "LatexMk"
+            latex-enable-auto-fill t)
+     syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -246,36 +250,63 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq org-latex-pdf-process
-        '("latexmk -pdflatex='pdflatex -interaction nonstopmode' -pdf -bibtex -f %f"))
-  (setq org-agenda-files (list "~/todo.org"
-                               "~/git/thesis/thesis.org"
-                               "~/project-peter/notebook.org"
-                               "~/project-peter/journal.org"
-                               "~/project-peter/bugs.org"
-                               "~/project-peter/development.org"))
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t)))
+  (with-eval-after-load 'org
+    (setq org-latex-pdf-process
+          '("latexmk -pdflatex='pdflatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+    (setq org-agenda-files (list "~/todo.org"
+                                 "~/project-peter/notebook.org"))
+                                 ;; "~/git/thesis/thesis.org"
+                                 ;; "~/project-peter/journal.org"
+                                 ;; "~/project-peter/bugs.org"
+                                 ;; "~/project-peter/development.org"))
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((python . t)))
 
-  (setq org-confirm-babel-evaluate nil)
+    (setq org-confirm-babel-evaluate nil)
 
-  ;; (defun peter-org-setup ()
-  ;;   (interactive)
-  ;;   ;; (adaptive-wrap-prefix-mode 1)
-  ;;   (set-fill-column 90)
-  ;;   (visual-line-mode 1))
+    (defun peter-org-setup ()
+      (interactive)
+      (auto-fill-mode 1)
+      (set-fill-column 75))
 
-  ;; (add-hook 'org-mode-hook 'peter-org-setup)
+    ;; (defun peter-org-setup-2 ()
+    ;;   (visual-line-mode 1)
+    ;;   (adaptive-wrap-prefix-mode 1)
+    ;;   )
+
+    ;; (add-hook 'org-mode-hook 'peter-org-setup-2)
+    )
+
 
   (setq python-shell-interpreter-args "--pylab --profile=dev")
-
-
+  (setq-default dotspacemacs-configuration-layers
+                '((auto-completion :variables
+                                   auto-completion-enable-snippets-in-popup t)))
   ;; (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
   ;; (setq ein:use-auto-complete t)
+  ;; (setq ein:use-auto-complete-superpack t)
 
   )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(org-agenda-files
+   (quote
+    ("~/todo.org" "~/project-peter/notebook.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

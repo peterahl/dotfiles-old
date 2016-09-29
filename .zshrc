@@ -59,6 +59,7 @@ plugins=(git)
 # User configuration
 
 export PATH="/home/peter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/peter/neuron/nrn/x86_64/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -66,16 +67,17 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
 source /Data/Dropbox/ipbigbertha.log
-    
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="emacsclient -t"
+else
+  export EDITOR="emacsclient -t"
+  export VISUAL="emacsclient -c -a emacs"
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -91,3 +93,16 @@ source /Data/Dropbox/ipbigbertha.log
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+

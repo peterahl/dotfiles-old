@@ -20,7 +20,7 @@ axes.axisbelow: True       # grid/ticks are below elements (e.g., lines, text)
 
 # axes.prop_cycle: cycler('color', ['E24A33', '348ABD', '988ED5', '777777', 'FBC15E', '8EBA42', 'FFB5B8'])
 # axes.prop_cycle: cycler('color', ['FF0000', 'FF8000', 'FFFF00', '80FF00', '00FF00', '00FF80', '00FFFF', '007FFF', '0000FF', '7F00FF', 'FF00FF', 'FF0080', 'FF0000']) 
-axes.prop_cycle: cycler('color', ['111111','008744','0057E7','D62D20','FFA700','E86AF0','CCAA04','FF4444','7BB3FF','007777','BE9B7B','1F9ED5','854442'])
+axes.prop_cycle: cycler('color', ['008744','0057E7','D62D20','FFA700','E86AF0','111111','CCAA04','FF4444','7BB3FF','007777','BE9B7B','1F9ED5','854442'])
 
 xtick.color: 555555
 xtick.direction: out

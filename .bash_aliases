@@ -4,10 +4,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias eemacs="emacs-24.5 -nw"
-alias emacs="emacs-24.5"
+# alias eemacs="emacs-24.5 -nw"
+# alias emacs="emacs-24.5"
+alias eemacs="emacsclient -t"
+alias emacs="emacsclient -c"
+alias startemacs="emacs-24.5 --daemon"
+alias stopemacs=" emacsclient -e '(kill-emacs)'"
 alias ooctave="octave --force-gui"
 alias kinitk="kinit -f peterahl@KTH.SE"
+alias kinitn="kinit -f peterahl@NADA.KTH.SE"
 
 alias kthprint="lp -o fit-to-page -d kth-print "
 alias bizhub="lp -o fit-to-page "
