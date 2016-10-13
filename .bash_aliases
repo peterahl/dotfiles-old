@@ -36,7 +36,7 @@ alias nrnmake="rm -r x86_64;nrnivmodl"
 
 alias aklogall="aklog -cell nada.kth.se -k KTH.SE; aklog"
 
-alias pynote="ipython3 notebook"
+alias pynote="jupyter notebook"
 
 alias matlabnw="matlab -nojvm -nodisplay -nosplash"
 alias matlabs="matlab -nojvm -nodisplay -nosplash -r "
