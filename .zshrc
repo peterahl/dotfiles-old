@@ -58,6 +58,9 @@ plugins=(git)
 
 # User configuration
 
+export PATH="/home/peter/bin:$PATH"
+export PATH="/home/peter/neuron/nrn/x86_64/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
