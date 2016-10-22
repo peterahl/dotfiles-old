@@ -58,7 +58,9 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/home/peter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/peter/neuron/nrn/x86_64/bin"
+# export PATH="/home/peter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/peter/neuron/nrn/x86_64/bin"
+export PATH="/home/peter/bin:$PATH"
+export PATH="/home/peter/neuron/nrn/x86_64/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
