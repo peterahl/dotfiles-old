@@ -66,7 +66,10 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.bash_aliases
 
-source /Data/Dropbox/ipbigbertha.log
+
+if [ -f /Data/Dropbox/ipbigbertha.log ]; then
+    source /Data/Dropbox/ipbigbertha.log
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
