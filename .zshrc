@@ -8,7 +8,8 @@ export ZSH=/home/peter/.oh-my-zsh
 
 # ZSH_THEME="random"
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="bira"
+# ZSH_THEME="agnoster"
 # ZSH_THEME="jnrowe"
 # ZSH_THEME="fox"
 
